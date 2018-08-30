@@ -1,0 +1,106 @@
+// **************************************************
+// Mixin library
+// Contains all sort of mixix
+// ***************************************************/
+// **************************************************
+// Media queries for screen
+// Set default for all media queries
+// ***************************************************/
+$mqBuffer: 1px !default;
+$tablet-width: 768px !default;
+$desktop-width: 1024px !default;
+
+/// Mixin to make mediaqueries for phone, tablet and desktop
+/// Changes to content are made in this mixin. Example in comment
+/// Use like: @include media-queries ($tablet-width, $desktop-width)
+@mixin media-queries($tablet-width, $desktop-width) {
+  @media screen and (max-width: #{$tablet-width - $mqBuffer}) {
+    // /* Mediaquery for Phones */
+  }
+
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - $mqBuffer}) {
+    // /* Mediaquery for tablet */
+  }
+
+  @media (min-width: #{$desktop-width}) {
+    // /* Mediaquery for desktop */
+    // .grid-prod-img {
+    //     grid-column: 2 / 5; 
+    // }
+    // .grid-prod-text {
+    //     grid-column: 5 / 11; 
+    // }
+  }
+}
+
+/// Mixin to make mediaquery for phone
+/// Changes are set up from call and inserted via @content
+/// Use like: @include mq-phone ($tablet-width)
+@mixin mq-phone ($tablet-width) {
+  @media screen and (max-width: #{$tablet-width - $mqBuffer}) {
+    /* PHONE MQ */
+    @content;
+  }
+}
+
+/// Mixin to make mediaquery for tablet
+/// Changes are set up from call and inserted via @content
+/// Use like: @include mq-tablet ($tablet-width, $destop-width)
+/// mq-tablet1 is used when there's no mq for desktop
+@mixin mq-tablet ($tablet-width, $destop-width) {
+  @media screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - $mqBuffer}) {
+    /* TABLET MQ */
+    @content;
+  }
+}
+
+@mixin mq-tablet1 {
+  @media screen and (min-width: #{$tablet-width}) {
+    /* TABLET MQ */
+    @content;
+  }
+}
+
+/// Mixin to make mediaquery for desktop
+/// Changes are set up from call and inserted via @content
+/// Use like: @include mq-desktop ($destop-width)
+@mixin mq-desktop ($destop-width) {
+  @media screen and (min-width: #{$desktop-width}) {
+    /* DESKTOP MQ */
+    @content;
+  }
+}
+
+/// Mixin to make custom mediaqueries
+/// Changes are set up from call and inserted via @content
+/// Use like: @include mq-tablet ($min, $max)
+@mixin mq-custom($min, $max) {
+  @media screen and (min-width: #{$min}) and (max-width: #{$max - $mqBuffer}) {
+    /* CUSTOM MQ */
+    @content;
+  }
+}
+
+// **************************************************
+// Definition grid
+// Set default 
+// ***************************************************/
+$grid-fraction: 12 !default;
+$grid-margin-aside: 0 !default;
+$grid-column-gap: 1vmin !default;
+$grid-margin-bottom: 1vmin !default;
+$grid-background-color: inherit !default;
+
+/// Mixin to define grid, classname=.main-grid
+/// Changes to content are made in this mixin.
+/// Use like: @include main-grid ($grid-fraction, $grid-margin, $grid-column-gap, $grid-margin-bottom,$grid-background-color)
+@mixin main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom, $grid-background-color) {
+  .main-grid {
+    display: grid;
+    grid-template-columns: $grid-margin-aside repeat($grid-fraction, 1fr) $grid-margin-aside;
+    grid-template-rows: auto;
+    grid-column-gap: $grid-column-gap;
+    margin-bottom: $grid-margin-bottom;
+    background-color: $grid-background-color; 
+  }
+}

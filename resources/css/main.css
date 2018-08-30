@@ -1,1 +1,32 @@
+/* line 7, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+html {
+  scroll-behavior: smooth;
+}
 
+/* line 11, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+body {
+  background: url(//assets.ubuntu.com/sites/ubuntu/latest/u/img/backgrounds/image-background-paper.png) repeat-y center top;
+  color: #333333;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* line 22, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+ul, li {
+  list-style-type: none;
+}
+
+/* line 26, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 30, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=../css/main.map */
