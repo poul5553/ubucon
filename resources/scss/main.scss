@@ -1,1 +1,44 @@
+@import 'fontsetup';
+
+@import 'colorsetup';
+
+@import 'mixin';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url(//assets.ubuntu.com/sites/ubuntu/latest/u/img/backgrounds/image-background-paper.png) repeat-y center top;
+    color: $color-neutral-cool-grey;
+    font-family: $font-family-norm;
+    font-weight: $font-weight-norm;
+    margin: 0; 
+    padding: 0; 
+    border: 0;
+}
+
+
+ul, li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+  width: 100%;  
+}
+
+// Definer grid 
+
+$grid-fraction: 12;
+$grid-margin-aside: 0;
+$grid-column-gap: 1vmin;
+$grid-margin-bottom: 1vmin;
+$grid-background-color: $color-ubuntu-background; 
+// @include main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom,$grid-background-color);
+
+
 

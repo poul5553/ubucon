@@ -1,0 +1,27 @@
+// Colors 
+$color-primary-orange: #E95420; 
+$color-primary-white: #FFFFFF;
+$color-primary-black: #000000; 
+
+$color-support-aubergine-light: #77216F; 
+$color-support-aubergine-mid: #5E2750;
+$color-support-aubergine-dark: #2C001E;   
+
+$color-neutral-warm-grey: #AEA79F;
+$color-neutral-cool-grey: #333333;
+$color-neutral-text-grey: #111111;
+
+// Color palette
+// ubuntu
+$color-ubuntu-primary: $color-primary-orange;
+$color-ubuntu-secondary: $color-neutral-warm-grey;
+$color-ubuntu-tertiere: $color-support-aubergine-light; 
+$color-ubuntu-background: $color-primary-white;
+$color-ubuntu-font: $color-neutral-cool-grey;
+
+// canonicle - ikke med i opgaven pt. 
+$color-canonicle-primary: $color-support-aubergine-light;
+$color-canonicle-secondary: $color-primary-white;
+$color-canonicle-tertiere: $color-primary-orange; 
+$color-canonicle-background: $color-neutral-warm-grey;
+$color-canonicle-font: $color-primary-black;

@@ -1,23 +1,168 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="//assets.ubuntu.com/sites/ubuntu/latest/u/img/favicon.ico" type="image/x-icon">
     <!-- Fonte -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu+Mono:400,700|Ubuntu:400,700" rel="stylesheet">
-         
-    <!-- Egne CSS --> 
+
+    <!-- Egne CSS -->
     <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 
     <title>UbuCon CPH</title>
 </head>
-<body>
-    
 
-    
+<body>
+
+    <nav>
+
+        <ul>
+            <li>Ubucon Copenhagen</li>
+            <li>Program</li>
+            <li>Tilmelding</li>
+        </ul>
+    </nav>
+
+    <main>
+<!-- Infobox med tid og sted  -->
+        <section class="main-grid">
+
+            <article class="item-place">
+                <figure>
+                    <img class="oeksne-class" alt="brand_image" src="./resources/img/16_oeks_forside.jpg">
+                </figure>
+            </article>
+
+            <article class="item-place">
+                <h1>Ubucon Copenhagen</h1>
+                <p>
+                    Start: Fredag den 26. oktober kl. 09.00
+                </p>
+                <p>
+                    Slut: Søndag den 28. oktober kl. 16.00
+                </p>
+                <p>
+                    Sted: Øksnehallen, DGI-byen i København
+                </p>
+
+                <button>Tilmeld</button>
+
+            </article>
+        </section>
+
+<!-- Nyhedsblok -->
+        <section class="main-grid">
+            <h2>Seneste nyheder</h2>
+
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+            <article class="item-news">
+                <p>
+                    article 1
+                </p>
+            </article>
+        </section>
+
+<!-- Interest form  -->
+
+        <form action="#" method="post" class="main-grid">          
+                
+                <fieldset class="form-content">
+                    <h3>Jeg er interesseret og vil gerne høre mere</h3>
+               
+                            
+                                        
+               
+                    <p class="form-field">
+                        <Label class="labelena" for="name"><span>Fulde navn</span></Label>
+                        <input type="text" required id="name" name="name" data-name placeholder="Indtast Fulde Navn "  />
+                    </p>
+                                                           
+                                        
+                    <p class="form-field">
+                            <Label class="labelDis" for="nameEmail"><span>E-mail </span></Label>
+                            <input type="text" required id="nameEmail" name="nameEmail" data-email placeholder="Indtast Email "  />             
+                    </p> 
+
+                    <p>
+                        <Label class="labelDis" for="nameMsg"><span>Meddelelse </span></Label>
+                        <textarea id="nameMsg" name="nameMsg" data-alpha-num placeholder="Besked "></textarea> 
+                    </p>
+                            
+                    <button type="button" onclick="validate_form(this.form)">Send mig mere materiale</button> 
+                                        
+                          
+                </fieldset>            
+          
+                                                      
+            </form>
+
+<!-- Emnelinks  -->
+
+            <section class="main-grid">
+                <h2>Links - Conference subjects</h2>
+                <p>The conference program contains issues about Desktop and IoT. Read more</p>
+                <article class="subject-item">
+                    Desktop
+                </article>
+                <article class="subject-item">
+                        Iot
+                </article>
+            
+            </section>
+
+
+    </main>
+
+    <footer class="main-grid">
+
+        Footer
+    </footer>
+
+
+
+
+
+
+
 </body>
+
 </html>
