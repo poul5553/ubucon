@@ -31,6 +31,12 @@ img {
   width: 100%;  
 }
 
+.wrapper {
+    width: 70vw;
+    display: flex; 
+    justify-content: center;
+}
+
 // Definer grid 
 
 $grid-fraction: 12;
@@ -38,7 +44,15 @@ $grid-margin-aside: 0;
 $grid-column-gap: 1vmin;
 $grid-margin-bottom: 1vmin;
 $grid-background-color: $color-ubuntu-background; 
-// @include main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom,$grid-background-color);
+@include main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom,$grid-background-color);
 
 
+
+.item-place {
+    grid-column: span 12; 
+
+    @include mq-tablet1 () {
+        grid-column: span 6;
+    }
+}
 
