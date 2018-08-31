@@ -97,10 +97,48 @@ $grid-background-color: inherit !default;
 @mixin main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom, $grid-background-color) {
   .main-grid {
     display: grid;
-    grid-template-columns: $grid-margin-aside repeat($grid-fraction, 1fr) $grid-margin-aside;
+
+    @if $grid-margin-aside>0 {
+      grid-template-columns: $grid-margin-aside repeat($grid-fraction, 1fr) $grid-margin-aside;
+    }
+
+    @else {
+      grid-template-columns: repeat($grid-fraction, 1fr);
+    }
+
     grid-template-rows: auto;
     grid-column-gap: $grid-column-gap;
     margin-bottom: $grid-margin-bottom;
-    background-color: $grid-background-color; 
+    background-color: $grid-background-color;
   }
 }
+
+// **************************************************
+// Definition border
+// Set default 
+// ***************************************************/
+$border-width: 0 !default;
+$border-style: solid !default;
+$border-radius: 0 !default;
+$border-color: $default-border-color !default;
+$selector: null !default;
+
+/// Mixin to define border
+/// Changes to content are made in this mixin.
+/// Use like: @include def-border ($border-width, $border-style, $border-radius, $border-color)
+/// 
+@mixin def-border($border-width, $border-style, $border-radius, $border-color) {
+  border-width: $border-width;
+  border-style: $border-style;
+  border-radius: $border-radius;
+  border-color: $border-color;
+}
+
+@mixin selector ($selector, $border-width, $border-style, $border-radius, $border-color) {
+  #{$selector} {@include def-border($border-width, $border-style, $border-radius, $border-color) 
+
+}
+}
+
+
+
