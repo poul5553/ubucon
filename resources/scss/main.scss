@@ -38,7 +38,7 @@ $grid-margin-aside: 0;
 $grid-column-gap: 1vmin;
 $grid-margin-bottom: 1vmin;
 $grid-background-color: $color-ubuntu-background; 
-// @include main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom,$grid-background-color);
+@include main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom,$grid-background-color);
 
 
 
