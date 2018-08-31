@@ -29,4 +29,34 @@ img {
   width: 100%;
 }
 
+/* line 34, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+.wrapper {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 98, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
+.main-grid {
+  display: grid;
+  grid-template-columns: 0 repeat(12, 1fr) 0;
+  grid-template-rows: auto;
+  grid-column-gap: 1vmin;
+  margin-bottom: 1vmin;
+  background-color: #FFFFFF;
+}
+
+/* line 51, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+.item-place {
+  grid-column: span 12;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 51, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+  .item-place {
+    /* TABLET MQ */
+    grid-column: span 6;
+  }
+}
+
 /*# sourceMappingURL=../css/main.map */
