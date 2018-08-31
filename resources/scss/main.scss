@@ -1,3 +1,5 @@
+@import 'mainsetup';
+
 @import 'fontsetup';
 
 @import 'colorsetup';
@@ -31,10 +33,17 @@ img {
   width: 100%;  
 }
 
-.wrapper {
-    width: 70vw;
-    display: flex; 
-    justify-content: center;
+.main-wrapper {
+    width: 100vw;
+    margin: auto; 
+
+    @include mq-tablet ($tablet-width,$desktop-width)  {
+        width: $tablet-width;
+    }
+
+    @include mq-desktop ($desktop-width) {
+        width: $desktop-width;
+    }
 }
 
 // Definer grid 
@@ -56,3 +65,16 @@ $grid-background-color: $color-ubuntu-background;
     }
 }
 
+$border-width: 2;
+$border-style: solid;
+$border-radius: 10;
+$border-color: $default-border-color;
+$selector: ".klaes";
+
+// @include def-border ($border-width, $border-style, $border-radius, $border-color); 
+@include selector ($selector, $border-width, $border-style, $border-radius, $border-color); 
+
+.billed { 
+    @include def-border ($border-width, $border-style, $border-radius, $border-color); 
+    margin: 5vmin; 
+}
