@@ -1,9 +1,9 @@
-/* line 9, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 6, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 html {
   scroll-behavior: smooth;
 }
 
-/* line 13, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 10, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 body {
   background: url(//assets.ubuntu.com/sites/ubuntu/latest/u/img/backgrounds/image-background-paper.png) repeat-y center top;
   color: #333333;
@@ -14,29 +14,29 @@ body {
   border: 0;
 }
 
-/* line 24, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 20, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 ul, li {
   list-style-type: none;
 }
 
-/* line 28, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 24, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 a {
   text-decoration: none;
 }
 
-/* line 32, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 28, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 img {
   width: 100%;
 }
 
-/* line 36, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 32, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .main-wrapper {
   width: 100vw;
   margin: auto;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  /* line 36, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+  /* line 32, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
   .main-wrapper {
     /* TABLET MQ */
     width: 768px;
@@ -44,51 +44,41 @@ img {
 }
 
 @media screen and (min-width: 1024px) {
-  /* line 36, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+  /* line 32, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
   .main-wrapper {
     /* DESKTOP MQ */
     width: 1024px;
   }
 }
 
-/* line 98, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
+/* line 121, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
 .main-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  grid-column-gap: 1vmin;
-  margin-bottom: 1vmin;
   background-color: #FFFFFF;
 }
 
-/* line 60, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 59, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .item-place {
   grid-column: span 12;
 }
 
 @media screen and (min-width: 768px) {
-  /* line 60, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+  /* line 59, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
   .item-place {
     /* TABLET MQ */
     grid-column: span 6;
   }
 }
 
-/* line 138, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
+/* line 152, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
 .klaes {
-  border-width: 2;
+  border-width: 2px;
   border-style: solid;
   border-radius: 10;
   border-color: #000000;
-}
-
-/* line 77, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
-.billed {
-  border-width: 2;
-  border-style: solid;
-  border-radius: 10;
-  border-color: #000000;
-  margin: 5vmin;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=../css/main.map */

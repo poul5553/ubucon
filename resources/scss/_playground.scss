@@ -1,5 +1,501 @@
-
-@mixin centerit {display: flex; 
-    align-items: center; 
-    justify-content: center; 
-} 
+@mixin text-shadow ($string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+    text-shadow: $string;
+  }
+  @mixin box-shadow ($string) {
+    -webkit-box-shadow: $string;
+    -moz-box-shadow:    $string;
+    box-shadow:         $string;
+  }
+  @mixin drop-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+    -webkit-box-shadow:     $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    -moz-box-shadow:        $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    box-shadow:             $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  }
+  @mixin inner-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+    -webkit-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    -moz-box-shadow:    inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+    box-shadow:         inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  }
+  
+  @mixin box-sizing ($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing:    $type;
+    box-sizing:         $type;
+  }
+  
+  @mixin border-radius ($radius: 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius:    $radius;
+    border-radius:         $radius;
+  
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+  }
+  @mixin border-radiuses ($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+    -webkit-border-top-right-radius:    $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius:  $bottomleft;
+    -webkit-border-top-left-radius:     $topleft;
+  
+    -moz-border-radius-topright:        $topright;
+    -moz-border-radius-bottomright:     $bottomright;
+    -moz-border-radius-bottomleft:      $bottomleft;
+    -moz-border-radius-topleft:         $topleft;
+  
+    border-top-right-radius:            $topright;
+    border-bottom-right-radius:         $bottomright;
+    border-bottom-left-radius:          $bottomleft;
+    border-top-left-radius:             $topleft;
+  
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+  }
+  
+  @mixin opacity ($opacity: 0.5) {
+    -webkit-opacity:        $opacity;
+    -moz-opacity:           $opacity;
+    opacity:                $opacity;
+  }
+  
+  @mixin gradient ($startColor: #eee, $endColor: white) {
+    background-color: $startColor;
+    background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+    background: -webkit-linear-gradient(top, $startColor, $endColor);
+    background: -moz-linear-gradient(top, $startColor, $endColor);
+    background: -ms-linear-gradient(top, $startColor, $endColor);
+    background: -o-linear-gradient(top, $startColor, $endColor);
+  }
+  @mixin horizontal-gradient ($startColor: #eee, $endColor: white) {
+    background-color: $startColor;
+    background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+    background-image: -moz-linear-gradient(left, $startColor, $endColor);
+    background-image: -ms-linear-gradient(left, $startColor, $endColor);
+    background-image: -o-linear-gradient(left, $startColor, $endColor);
+  }
+  @mixin horizontal-gradient-rtl ($startColor: #eee, $endColor: white) {
+      //background-color: $startColor;
+      background-image: -webkit-gradient(linear, right top, left top, from($startColor), to($endColor));
+      background-image: -webkit-linear-gradient(right, $startColor, $endColor);
+      background-image: -moz-linear-gradient(right, $startColor, $endColor);
+      background-image: -ms-linear-gradient(right, $startColor, $endColor);
+      background-image: -o-linear-gradient(right, $startColor, $endColor);
+  }
+  
+  @mixin animation ($name, $duration: 300ms, $delay: 0, $ease: ease) {
+    -webkit-animation: $name $duration $delay $ease;
+    -moz-animation:    $name $duration $delay $ease;
+    -ms-animation:     $name $duration $delay $ease;
+    animation:     	$name $duration $delay $ease;
+  }
+  
+  @mixin transition ($transition: all 0.2s ease) {
+    -webkit-transition: $transition;
+    -moz-transition:    $transition;
+    -ms-transition:     $transition;
+    -o-transition:      $transition;
+    transition:   	  $transition;
+  }
+  @mixin transition-transform ($arg) {
+    -webkit-transition: -webkit-transform $arg;
+    -moz-transition: -moz-transform $arg;
+    -o-transition: -o-transform $arg;
+    transition: transform $arg;
+  
+    -webkit-transform: translatez(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    transform: translatez(0);
+  }
+  @mixin transform($string){
+    -webkit-transform:       $string;
+    -moz-transform:          $string;
+    -ms-transform:           $string;
+    -o-transform:            $string;
+    transform:                       $string;
+  }
+  @mixin scale ($factor) {
+    -webkit-transform: scale($factor);
+    -moz-transform:          scale($factor);
+    -ms-transform:           scale($factor);
+    -o-transform:            scale($factor);
+  }
+  @mixin  rotate ($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform:          rotate($deg);
+    -ms-transform:           rotate($deg);
+    -o-transform:            rotate($deg);
+  }
+  @mixin  skew ($deg, $deg2) {
+    -webkit-transform:       skew($deg, $deg2);
+    -moz-transform:          skew($deg, $deg2);
+    -ms-transform:           skew($deg, $deg2);
+    -o-transform:            skew($deg, $deg2);
+  }
+  @mixin  translate ($x, $y:0) {
+    -webkit-transform:       translate($x, $y);
+    -moz-transform:          translate($x, $y);
+    -ms-transform:           translate($x, $y);
+    -o-transform:            translate($x, $y);
+  }
+  @mixin  translate3d ($x, $y: 0, $z: 0) {
+    -webkit-transform:       translate3d($x, $y, $z);
+    -moz-transform:          translate3d($x, $y, $z);
+    -ms-transform:           translate3d($x, $y, $z);
+    -o-transform:            translate3d($x, $y, $z);
+  }
+  @mixin  perspective ($value: 1000) {
+    -webkit-perspective:    $value;
+    -moz-perspective:       $value;
+    -ms-perspective:        $value;
+    perspective:            $value;
+  }
+  @mixin  transform-origin ($x:center, $y:center) {
+    -webkit-transform-origin: $x $y;
+    -moz-transform-origin:    $x $y;
+    -ms-transform-origin:     $x $y;
+    -o-transform-origin:      $x $y;
+  }
+  
+  @mixin button($color, $border-color, $width, $hover-color){
+      @include border-radius(5px);
+      text-decoration: none;
+      height: 23px;
+      width: $width;
+      text-align: center;
+      padding-top: 11px;
+      display: inline-block;
+      color: white;
+      background-color: $color;
+      position: relative;
+      font-family: 'Conv_AvenirNext';
+      cursor: pointer;
+      @include breakpoint($break1) {
+          padding-top: 14px;
+          height: 26px;
+      }
+      &:hover, &:active{
+        background-color: $hover-color;
+      }
+      &:active{
+        &:before{
+          bottom: -4px;
+        }
+        &:after{
+          bottom: -8px;
+        }
+        top: 2px;
+      }
+      &:before, &:after{
+          @include border-radius(5px);
+          height: 15px;
+          width: 100%;
+          display: block;
+          position: absolute;
+          content: "";
+      }
+      &:before{
+          background-color: $border-color;
+          bottom: -6px;
+          z-index: -1;
+      }
+      &:after{
+          background-color: #e6e6e6;
+          bottom: -10px;
+          z-index: -2;
+      }
+  
+  }
+  
+  
+  @mixin  outline-button ($width: 4rem, $color: #dd394d, $hoverColor: #e40327){
+      height: 2.42rem;
+      width: $width;
+      margin: -1px -1px 0 0;
+      border: 2px solid $color;
+  
+      cursor: pointer;
+      @include box-sizing();
+      @include border-radius(2px);
+  
+      span {
+          display: block;
+          padding-top: .7rem;
+  
+          font-size: 1rem;
+          font-family: 'Conv_AvenirNext';
+          color: $color;
+          font-weight: 700;
+          text-align: center;
+          line-height: 1;
+  
+          &:hover, &:active, &.active, &.pushed {
+              color: $hoverColor;
+          }
+  
+      }
+  
+  
+      &:active{
+          background-color: #f8f8f8;
+      }
+  }
+  
+  @mixin filled-button($width: 13.57rem, $color: #dd394d, $border-color: #bf0d2e, $hoverColor: #ef455b ){
+      @include border-radius(.36rem);
+      @include box-sizing();
+      text-decoration: none;
+      height: 3.57rem;
+      width: $width;
+      text-align: center;
+      padding-top: .78rem;
+      display: block;
+      //background-color: #e6e6e6;
+      background-color: rgba(#000, 0.1);
+      position: relative;
+      cursor: pointer;
+  
+      &:before, &:after{
+          @include border-radius(.36rem);
+          height: 2.86rem;
+          width: 100%;
+          display: block;
+          position: absolute;
+          content: "";
+  
+          @include transition(background ease .5s);
+      }
+      &:before{
+          background-color: $border-color;
+          bottom: .28rem;
+          z-index: 1;
+      }
+      &:after{
+          background-color: $color;
+          bottom: .71rem;
+          z-index: 2;
+          -webkit-box-shadow: 0px -3px 3px 0px rgba(255,255,255,1);
+          -moz-box-shadow: 0px -3px 3px 0px rgba(255,255,255,1);
+          box-shadow: 0px -3px 3px 0px rgba(255,255,255,1);
+      }
+      &:hover:after, &:active:after, &.active:after, &.pushed:after {
+          background-color: $hoverColor;
+      }
+  
+      span, a {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding-top: .36rem;
+  
+          position: absolute;
+          top: .64rem;
+          z-index: 3;
+  
+          color: #fff;
+          font-weight:400;
+          font-family: 'Conv_AvenirNext', Arial, sans-serif;
+          text-decoration: none;
+          line-height: 1;
+      }
+  
+      &.pushed,
+      &:active,  &.active{
+  
+          span, a {
+              padding-top: .56rem;
+          }
+  
+          &:after {
+              bottom: .57rem;
+          }
+      }
+  }
+  
+  @mixin filled-button-fixed(){
+      height: 50px;
+      margin: 0 auto;
+      padding-top: 0;
+  
+      &:after {
+          bottom: 10px;
+          height: 40px;
+      }
+      &:before {
+          bottom: 4px;
+          height: 40px;
+      }
+  
+      span, a {
+          top:10px;
+          padding-top: 3px;
+          font-size: 14px;
+          text-decoration: none;
+      }
+    
+      &:active, &.active, &.pushed {
+          span, a {
+              padding-top: 5px;
+          }
+  
+          &:after {
+              bottom: 8px;
+          }
+      }
+  }
+  
+  
+  
+  
+  
+  @mixin usual-link ($fs:1rem, $color: #323232, $hoverColor: #ef455b){
+  
+      font: $fs 'Arial';
+      color: $color;
+      text-decoration: none;
+      cursor: pointer;
+  
+      &:hover{
+          color: $hoverColor;
+      }
+  }
+  
+  @mixin size ($w:13, $h:13){
+      width: ($w + px);
+      height: ($h + px);
+  }
+  
+  @mixin input-custom(){
+      border: 1px solid #aaaaaa;
+      @include border-radius(2px);
+      width: 100%;
+      height: 2.5rem;
+      padding: 0 0.79rem;
+      box-sizing: border-box;
+      font-size: 1rem;
+  
+      .auth-popup-wrap & {
+          margin-top: 0.86rem;
+      }
+      &.error{
+          border-color: #D71A21;
+      }
+      &:hover {
+          background-color: #f8f8f8;
+      }
+      &:focus{
+          background-color: #ffffff !important;
+      }
+      &[disabled]{
+          background: none;
+      }
+  }
+  //@mixin toggler ($width: 31rem, $height: 2.43rem){
+  //	width: $width;
+  //	height: $height;
+  //
+  //	.toggler__el {
+  //		display: block;
+  //		float: left;
+  //
+  //		height: 100%;
+  //		border: 1px solid #aaa;
+  //		border-right: none;
+  //		padding: .71rem;
+  //
+  //		font: 1rem 'Arial';
+  //		color: #323232;
+  //		line-height: 1;
+  //
+  //		cursor: pointer;
+  //
+  //		@include box-sizing();
+  //
+  //		&:hover,
+  //		&.active {
+  //			background: #e6e6e6;
+  //		}
+  //
+  //		&:last-child {
+  //			border-right: 1px solid #aaa;
+  //		}
+  //	}
+  //}
+  
+  @mixin flexbox() {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+  }
+  
+  @mixin flex($values) {
+      -webkit-box-flex: $values;
+      -moz-box-flex:  $values;
+      -webkit-flex:  $values;
+      -ms-flex:  $values;
+      flex:  $values;
+  }
+  
+  @mixin order($val) {
+      -webkit-box-ordinal-group: $val;
+      -moz-box-ordinal-group: $val;
+      -ms-flex-order: $val;
+      -webkit-order: $val;
+      order: $val;
+  }
+  
+  @mixin clearfix() {
+      &:before {
+          content: "";
+          display: table;
+      }
+      &:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+  }
+  
+  
+  
+  
+  
+  
+  
+  $hfs: 14; // 100% font-size
+  
+  @function strip-unit($num) {
+      @return $num / ($num * 0 + 1);
+  }
+  
+  @mixin pxToRem($property, $values...) {
+      $max: length($values);
+      $pxValues: '';
+      $remValues: '';
+  
+      @for $i from 1 through $max {
+          $value: strip-unit(nth($values, $i));
+          $pxValues: #{$pxValues + $value/$hfs}rem;
+  
+          @if $i < $max {
+              $pxValues: #{$pxValues + " "};
+          }
+      }
+  
+      @for $i from 1 through $max {
+          $value: strip-unit(nth($values, $i));
+          $remValues: #{$remValues + $value}px;
+  
+          @if $i < $max {
+              $remValues: #{$remValues + " "};
+          }
+      }
+  
+      #{$property}: $remValues;
+      #{$property}: $pxValues;
+  }

@@ -85,33 +85,46 @@ $desktop-width: 1024px !default;
 // Definition grid
 // Set default 
 // ***************************************************/
+$grid-klaes: null !default; 
 $grid-fraction: 12 !default;
-$grid-margin-aside: 0 !default;
-$grid-column-gap: 1vmin !default;
-$grid-margin-bottom: 1vmin !default;
+$grid-margin-aside: null !default;
+$grid-rows: null !default;
+$grid-gap: null !default;
 $grid-background-color: inherit !default;
 
-/// Mixin to define grid, classname=.main-grid
-/// Changes to content are made in this mixin.
-/// Use like: @include main-grid ($grid-fraction, $grid-margin, $grid-column-gap, $grid-margin-bottom,$grid-background-color)
-@mixin main-grid($grid-fraction, $grid-margin-aside, $grid-column-gap, $grid-margin-bottom, $grid-background-color) {
-  .main-grid {
+/// Define grid without class and with variable classname 
+/// Changes to content are made both in this mixin and via @content.
+/// without class: @include grid-def ($grid-fraction, ¤grid-template-rows, $grid-column-gap,$grid-background-color)
+/// with class: @include grid-def-sel ($selector $grid-fraction, ¤grid-template-rows, $grid-column-gap,$grid-background-color)
+@mixin grid-def ($grid-fraction, $grid-template-rows, $grid-column-gap, $grid-background-color) {
+   
     display: grid;
-
-    @if $grid-margin-aside>0 {
-      grid-template-columns: $grid-margin-aside repeat($grid-fraction, 1fr) $grid-margin-aside;
-    }
-
-    @else {
+    
+    @if $grid-fraction > 0 {
       grid-template-columns: repeat($grid-fraction, 1fr);
     }
 
-    grid-template-rows: auto;
-    grid-column-gap: $grid-column-gap;
-    margin-bottom: $grid-margin-bottom;
+    @if $grid-template-rows=null {
+      grid-template-rows: auto;
+    }
+
+    @else {
+      grid-template-rows: $grid-template-rows
+    }
+
     background-color: $grid-background-color;
+
+    @content;
   }
-}
+
+  @mixin grid-def-sel ($selector, $grid-fraction, $grid-template-rows, $grid-column-gap, $grid-background-color) {
+    #{$selector} {
+      @include grid-def ($grid-fraction, $grid-template-rows, $grid-column-gap, $grid-background-color)
+    }
+
+    @content;
+  }
+
 
 // **************************************************
 // Definition border
@@ -127,18 +140,109 @@ $selector: null !default;
 /// Changes to content are made in this mixin.
 /// Use like: @include def-border ($border-width, $border-style, $border-radius, $border-color)
 /// 
-@mixin def-border($border-width, $border-style, $border-radius, $border-color) {
+@mixin border-def($border-width, $border-style, $border-radius, $border-color) {
   border-width: $border-width;
   border-style: $border-style;
   border-radius: $border-radius;
   border-color: $border-color;
+  box-sizing: border-box;
 }
 
-@mixin selector ($selector, $border-width, $border-style, $border-radius, $border-color) {
-  #{$selector} {@include def-border($border-width, $border-style, $border-radius, $border-color) 
-
+@mixin border-def-sel ($selector, $border-width, $border-style, $border-radius, $border-color) {
+  #{$selector} {
+    @include border-def($border-width, $border-style, $border-radius, $border-color)
+  }
 }
+
+/// Center content in container 
+/// Changes to content are made in this mixin.
+/// Use like: @include center-content 
+@mixin center-content {
+  .center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
+/// Set shadow on an item
+/// Changes to content are made set external 
+/// Use like: @include item-shadow
+@mixin item-shadow {
+  .shadow-class {
+    @content
+  }
+}
+ 
+/// Set scale on an item
+/// Changes to content are made in this mixin
+/// Use like: @include item-scale ($ratio)
+@mixin item-scale ($ratio) {
+    -webkit-transform: scale($ratio);
+       -moz-transform: scale($ratio);
+        -ms-transform: scale($ratio);
+         -o-transform: scale($ratio);
+            transform: scale($ratio);
+  
+}
 
+@mixin text-shadow ($string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+  text-shadow: $string;
+}
+@mixin box-shadow ($string) {
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+@mixin drop-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow:     $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:        $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow:             $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+@mixin inner-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+  -webkit-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  -moz-box-shadow:    inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  box-shadow:         inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
 
+@mixin box-sizing ($type: border-box) {
+  -webkit-box-sizing: $type;
+  -moz-box-sizing:    $type;
+  box-sizing:         $type;
+}
+
+@mixin border-radius ($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+@mixin border-radiuses ($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+  -webkit-border-top-right-radius:    $topright;
+  -webkit-border-bottom-right-radius: $bottomright;
+  -webkit-border-bottom-left-radius:  $bottomleft;
+  -webkit-border-top-left-radius:     $topleft;
+
+  -moz-border-radius-topright:        $topright;
+  -moz-border-radius-bottomright:     $bottomright;
+  -moz-border-radius-bottomleft:      $bottomleft;
+  -moz-border-radius-topleft:         $topleft;
+
+  border-top-right-radius:            $topright;
+  border-bottom-right-radius:         $bottomright;
+  border-bottom-left-radius:          $bottomleft;
+  border-top-left-radius:             $topleft;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+@mixin opacity ($opacity: 0.5) {
+  -webkit-opacity:        $opacity;
+  -moz-opacity:           $opacity;
+  opacity:                $opacity;
+}
