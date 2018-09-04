@@ -235,9 +235,10 @@ $i: 0;
     padding-left: 1vmin;
 
     background-color: $color-2nd; 
-    color: $color-font;
+    color: $color-back;
+    }
 
-}   
+  
 
 fieldset {
     border: none;
@@ -298,8 +299,40 @@ fieldset {
     padding-left: 1vmin;
 
     background-color: $color-back; 
-    color: $color-font;
+    color: $color-support-aubergine-light;
+    a {
+        color: $color-support-aubergine-light;
+    }
+
 
 }   
 
 @include center-content; 
+
+.subject-box {
+    width: 30vmin; 
+    height: 30vmin;
+    $border-width: 1px;
+$border-style: solid;
+$border-radius: 0;
+$border-color: $color-1st;
+$selector: null;
+
+@if $selector==null {
+  
+        @include border-def ($border-width, $border-style, $border-radius, $border-color);
+        
+    
+}
+
+@else {
+    @include border-def-sel ($selector, $border-width, $border-style, $border-radius, $border-color);
+}
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.footer-item {
+    grid-column: span 12;
+}

@@ -277,10 +277,10 @@ img {
   grid-column: span 12;
   padding-left: 1vmin;
   background-color: #AEA79F;
-  color: #333333;
+  color: #FFFFFF;
 }
 
-/* line 242, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 243, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 fieldset {
   border: none;
 }
@@ -289,24 +289,24 @@ fieldset {
 
     color: var(--colorBorder); 
 } */
-/* line 252, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 253, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .formcontact span {
   /* width: 20vmin; */
   display: inline-block;
 }
 
-/* line 257, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 258, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .labelEna {
   /* width: 20vmin;  */
   display: inline-block;
 }
 
-/* line 262, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 263, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .labelDis {
   display: none;
 }
 
-/* line 266, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 267, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .interest-button {
   background-color: #E95420;
   color: #FFFFFF;
@@ -320,12 +320,12 @@ fieldset {
   margin-bottom: 3vmin;
 }
 
-/* line 275, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 276, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .interest-button :hover {
   cursor: pointer;
 }
 
-/* line 279, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 280, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .interest-button :active {
   transform: scale(0.8, 0.8);
   -webkit-transform: scale(0.8, 0.8);
@@ -334,7 +334,7 @@ fieldset {
   -o-transform: scale(0.8, 0.8);
 }
 
-/* line 286, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 287, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .subject-header {
   grid-column: span 12;
   padding: 2vmin 1vmin 2vmin 1vmin;
@@ -342,12 +342,17 @@ fieldset {
   background-color: #FFFFFF;
 }
 
-/* line 295, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+/* line 296, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
 .subject-item {
   grid-column: span 6;
   padding-left: 1vmin;
   background-color: #FFFFFF;
-  color: #333333;
+  color: #77216F;
+}
+
+/* line 303, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+.subject-item a {
+  color: #77216F;
 }
 
 /* line 161, C:/Users/poul5553/Opgaver/ubucon/resources/scss/_mixin.scss */
@@ -355,6 +360,25 @@ fieldset {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* line 312, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+.subject-box {
+  width: 30vmin;
+  height: 30vmin;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+  border-color: #E95420;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 336, C:/Users/poul5553/Opgaver/ubucon/resources/scss/main.scss */
+.footer-item {
+  grid-column: span 12;
 }
 
 /*# sourceMappingURL=../css/main.map */

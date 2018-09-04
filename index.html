@@ -26,8 +26,8 @@
 
             <ul class="menu-item">
                 <li><a href="index.html">Ubucon Copenhagen</a></li> 
-                <li><a href="#EVENTS">Program</a></li> 
-                <li><a href="#MISSION">Tilmelding</a></li>
+                <li><a href="program.html">Program</a></li> 
+                <li><a href="tilmeld.html">Tilmelding</a></li>
             </ul>
         </section>
     </nav>
@@ -54,7 +54,11 @@
                     Sted: Øksnehallen, DGI-byen i København
                 </p>
 
-                <button class="tilmeld-button">Jeg vil selvfølgelig med</button>
+                <a href="tilmeld.html">
+                        <button class="tilmeld-button">Jeg vil selvfølgelig med</button>
+                </a>
+
+                
 
             </article>
         </section>
@@ -118,7 +122,7 @@
         <form action="#" method="post" class="interest-item">          
                 
                 <fieldset class="form-content">
-                    <h3>Jeg er interesseret og vil gerne høre mere</h3>
+                    <h2>Jeg er interesseret og vil gerne høre mere</h2>
                
                             
                                         
@@ -148,13 +152,14 @@
 <!-- Emnelinks  -->
 
             <section class="main-grid section-border">
-                <h2 class="subject-header">Emner til konferencen</h2>
-                
+                <h2 class="subject-header">Læs på ubuntu.com</h2>
+
                 <article class="subject-item center-content">
-                    Desktop
+                        <a class="subject-box" href="https://www.ubuntu.com/desktop" target="_blank">Desktop</a> 
                 </article>
+
                 <article class="subject-item center-content">
-                        Iot
+                        <a class="subject-box" href="https://www.ubuntu.com/internet-of-things" target="_blank">IoT</a> 
                 </article>
             
             </section>
@@ -162,9 +167,16 @@
 
     </main>
 
-    <footer class="main-grid">
+    <footer class="main-wrapper">
 
-        Footer
+        <section class="main-grid">
+            <article class="footer-item">
+                    Footer
+            </article>
+
+        </section>
+
+        
     </footer>
 
 
@@ -172,7 +184,8 @@
 
 
 
-
+<!-- JavaScript -->
+<script src="./resources/js/myScript.js"></script>
 </body>
 
 </html>
