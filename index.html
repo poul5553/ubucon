@@ -14,37 +14,35 @@
     <!-- Egne CSS -->
     <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 
-    <title>UbuCon CPH</title>
+    <title>Ubucon CPH</title>
 </head>
 
 <body>
 
-    <nav>
+    <nav class="nav-menu">
+        <section class="nav-grid">
 
-        <ul>
-            <li>Ubucon Copenhagen</li>
-            <li>Program</li>
-            <li>Tilmelding</li>
-        </ul>
+        
+
+            <ul class="menu-item">
+                <li><a href="index.html">Ubucon Copenhagen</a></li> 
+                <li><a href="#EVENTS">Program</a></li> 
+                <li><a href="#MISSION">Tilmelding</a></li>
+            </ul>
+        </section>
     </nav>
-
-    <div class="billed">
-        <figure>
-            <img class="oeksne-class" alt="brand_image" src="./resources/img/16_oeks_forside.jpg">
-        </figure>
-    </div>
     
     <main class="main-wrapper">
 <!-- Infobox med tid og sted  -->
-        <section class="main-grid">
+        <section class="main-grid section-border">
 
-            <article class="item-place">
+            <article class="place-item">
                 <figure>
-                    <img class="oeksne-class" alt="brand_image" src="./resources/img/16_oeks_forside.jpg">
+                    <img class="oeksne-class klaes" alt="brand_image" src="./resources/img/16_oeks_forside.jpg">
                 </figure>
             </article>
 
-            <article class="item-place">
+            <article class="place-item">
                 <h1>Ubucon Copenhagen</h1>
                 <p>
                     Start: Fredag den 26. oktober kl. 09.00
@@ -56,60 +54,68 @@
                     Sted: Øksnehallen, DGI-byen i København
                 </p>
 
-                <button>Jeg vil selvfølgelig med</button>
+                <button class="tilmeld-button">Jeg vil selvfølgelig med</button>
 
             </article>
         </section>
 
 <!-- Nyhedsblok -->
-        <section class="main-grid">
-            <h2>Seneste nyheder</h2>
+        <section class="main-grid section-border">
 
-            <article class="item-news">
+            <h2 class="news-header">
+                Nyheder
+            </h2>
+           
+
+            <article class="news-item color-1">
                 <p>
                     article 1
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-2">
                 <p>
-                    article 1
+                    article 2
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-3">
                 <p>
-                    article 1
+                    article 3
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-4">
                 <p>
-                    article 1
+                    article 4
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-5">
                 <p>
-                    article 1
+                    article 5
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-6">
                 <p>
-                    article 1
+                    article 6
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-7">
                 <p>
-                    article 1
+                    article 7
                 </p>
             </article>
-            <article class="item-news">
+            <article class="news-item color-8">
                 <p>
-                    article 1
+                    article 8
                 </p>
             </article>
         </section>
 
 <!-- Interest form  -->
 
-        <form action="#" method="post" class="main-grid">          
+        <section class="main-grid section-border">
+
+       
+
+        <form action="#" method="post" class="interest-item">          
                 
                 <fieldset class="form-content">
                     <h3>Jeg er interesseret og vil gerne høre mere</h3>
@@ -118,8 +124,8 @@
                                         
                
                     <p class="form-field">
-                        <Label class="labelena" for="name"><span>Fulde navn</span></Label>
-                        <input type="text" required id="name" name="name" data-name placeholder="Indtast Fulde Navn "  />
+                        <Label class="labelDis" for="name"><span>Fulde navn</span></Label>
+                        <input type="text" required id="name" name="name" data-name placeholder="Indtast Navn "  />
                     </p>
                                                            
                                         
@@ -129,7 +135,7 @@
                     </p> 
 
                             
-                    <button type="button" onclick="validate_form(this.form)">Send mig mere materiale</button> 
+                    <button type="button" class="interest-button" onclick="validate_form(this.form)">Send mig mere materiale</button> 
                                         
                           
                 </fieldset>            
@@ -137,15 +143,17 @@
                                                       
             </form>
 
+        </section>
+
 <!-- Emnelinks  -->
 
-            <section class="main-grid">
-                <h2>Links - Conference subjects</h2>
-                <p>The conference program contains issues about Desktop and IoT. Read more</p>
-                <article class="subject-item">
+            <section class="main-grid section-border">
+                <h2 class="subject-header">Emner til konferencen</h2>
+                
+                <article class="subject-item center-content">
                     Desktop
                 </article>
-                <article class="subject-item">
+                <article class="subject-item center-content">
                         Iot
                 </article>
             

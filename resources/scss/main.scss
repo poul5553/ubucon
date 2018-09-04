@@ -12,17 +12,96 @@ body {
         color: $color-neutral-cool-grey;
     font-family: $font-family-norm;
     font-weight: $font-weight-norm;
+    font-size: $font-size-norm;
     margin: 0;
     padding: 0;
     border: 0;
 }
 
-ul, li {
-    list-style-type: none;
+h1 {
+    font-size: $font-size-h1; 
+    font-family: $font-family-norm; 
+    font-weight: $font-weight-bold; 
+}
+
+h2 {
+    font-size: $font-size-h2; 
+    font-family: $font-family-norm; 
+    font-weight: $font-weight-bold; 
 }
 
 a {
     text-decoration: none;
+}
+
+.nav-menu {
+    background-color: $color-1st;
+    padding: 1vmin 0;
+    margin: 1vmin 0; 
+
+    // Definer grid til navigation
+    $selector: ".nav-grid";
+    $grid-fraction: 12;
+    $grid-template-rows: null;
+    $grid-column-gap: null;
+    $grid-background-color: inherit;
+
+    $desktop-width: 1024px;
+    $tablet-width: 768px;
+
+    @include grid-def-sel ($selector, $grid-fraction, $grid-template-rows, $grid-column-gap, $grid-background-color) {
+        // Place optinal content to grid 
+       
+
+
+    ul {
+        text-align: left;
+   
+
+    li {
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 2vw; 
+
+        a {
+            color: $color-back;
+            font-family: $font-family-norm;
+            font-weight: $font-weight-norm;
+            font-size: $font-size-nav;
+        }
+
+        a:hover {
+            background-color: $color-1st * 1.2;
+        }
+
+        a:active {
+            background-color: $color-1st * 0.8;
+        }
+
+        a:focus {
+            background-color: $color-1st * 0.7;
+        }
+    }
+
+    
+    }
+
+    .menu-item {
+        grid-column: span 12;
+        width: 100vw; 
+
+        @include mq-desktop ($desktop-width) {
+            width: $desktop-width; 
+        }
+
+        @include mq-tablet ($tablet-width, $desktop-width) {
+            width: $tablet-width; 
+        }
+        margin: auto; 
+    }
+    }
+
+    
 }
 
 img {
@@ -54,23 +133,24 @@ $grid-background-color: $color-ubuntu-background;
     // grid-template-columns: 1fr 30vw 20vw 1fr;
 }
 
-;
-
-.item-place {
+.place-item {
     grid-column: span 12;
 
     @include mq-tablet1 () {
         grid-column: span 6;
     }
+
+    padding-left: 2vmin; 
+
 }
 
-$border-width: 2px;
+$border-width: 4px;
 $border-style: solid;
-$border-radius: 10;
-$border-color: $default-border-color;
+$border-radius: 50%;
+$border-color: $color-1st;
 $selector: ".klaes";
 
-@if $selector == null {
+@if $selector==null {
     .billed {
         @include border-def ($border-width, $border-style, $border-radius, $border-color);
         margin: 5vmin;
@@ -80,3 +160,146 @@ $selector: ".klaes";
 @else {
     @include border-def-sel ($selector, $border-width, $border-style, $border-radius, $border-color);
 }
+
+.tilmeld-button {
+    background-color: $color-1st;
+    color: $color-back;
+    font-size: $font-size-norm; 
+    $string:  0.4vmin 0.7vmin $color-neutral-warm-grey; 
+    @include box-shadow ($string); 
+    padding: 2vmin;
+    border: none;
+    transition: all 0.5s ease-in-out; 
+    :hover {
+        cursor: pointer; 
+    }
+
+    :active {
+        @include scale (0.8); 
+    }
+
+    margin-bottom: 3vmin; 
+}
+
+.section-border {
+   
+    border-bottom-style: solid; 
+    
+    border-bottom-color: $color-2nd; 
+    padding-top: 2vmin; 
+    padding-bottom: 2vmin; 
+}
+
+.news-header {
+    grid-column: span 12;
+
+    padding: 2vmin 1vmin 2vmin 1vmin; 
+
+    color: $color-back;
+    background-color: $color-1st; 
+}
+
+.news-item {
+    grid-column: span 6;
+    
+    padding-left: 1vmin; 
+
+    @include mq-tablet1 () {
+        grid-column: span 3;
+    }
+
+    background-color: $color-1st;    
+}
+
+$class-slug: ".color";
+$i: 0; 
+@each $tint in 100, 90, 80, 70, 60, 50, 45, 40 {
+    $i: $i + 1; 
+    #{$class-slug}-#{$i} {
+        
+       background-color: mix($color-1st, $color-back, $tint); 
+       @if $i < 6 {
+        color: $color-back;
+    } @else {
+        color: $color-neutral-text-grey; 
+    }
+}
+}
+
+
+
+
+.interest-item {
+    grid-column: span 12;
+ 
+    padding-left: 1vmin;
+
+    background-color: $color-2nd; 
+    color: $color-font;
+
+}   
+
+fieldset {
+    border: none;
+    
+}
+
+/* .formcontact legend {
+
+    color: var(--colorBorder); 
+} */
+
+.formcontact span {
+    /* width: 20vmin; */
+    display: inline-block;   
+}
+
+.labelEna {
+    /* width: 20vmin;  */
+    display: inline-block; 
+}
+
+.labelDis {
+    display: none;
+}
+
+.interest-button {
+    background-color: $color-1st;
+    color: $color-back;
+    font-size: $font-size-norm; 
+    $string:  0.4vmin 0.7vmin $default-border-color; 
+    @include box-shadow ($string); 
+    padding: 1vmin;
+    border: none;
+    transition: all 0.5s ease-in-out; 
+    :hover {
+        cursor: pointer; 
+    }
+
+    :active {
+        @include scale (0.8); 
+    }
+
+    margin-bottom: 3vmin; 
+}
+
+.subject-header {
+    grid-column: span 12;
+
+    padding: 2vmin 1vmin 2vmin 1vmin; 
+
+    color: $color-font;
+    background-color: $color-back; 
+}
+
+.subject-item {
+    grid-column: span 6;
+ 
+    padding-left: 1vmin;
+
+    background-color: $color-back; 
+    color: $color-font;
+
+}   
+
+@include center-content; 

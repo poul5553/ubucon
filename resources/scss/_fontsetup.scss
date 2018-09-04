@@ -4,3 +4,9 @@ $font-family-mono: 'Ubuntu Mono', monospace;
 
 $font-weight-norm: 400; 
 $font-weight-bold: 700; 
+
+$font-size-norm: 16px; 
+$font-size-h1: calc(#{$font-size-norm} * 2.0); 
+$font-size-h2: calc(#{$font-size-norm} * 2.0); 
+ 
+$font-size-nav: calc(#{$font-size-norm} * 2.0); 
