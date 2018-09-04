@@ -104,6 +104,17 @@ a {
     
 }
 
+.btn {
+  
+    cursor: pointer;
+  }
+  
+  /* Style the active class (and buttons on mouse-over) */
+  .active {
+    background-color: $color-1st * 0.8;
+    
+  }
+
 img {
     width: 100%;
 }
@@ -172,6 +183,11 @@ $selector: ".klaes";
     transition: all 0.5s ease-in-out; 
     :hover {
         cursor: pointer; 
+        background-color: $color-1st * 1.2;
+        
+    }
+    a:hover {
+        background-color: $color-1st * 1.2;
     }
 
     :active {
@@ -299,9 +315,9 @@ fieldset {
     padding-left: 1vmin;
 
     background-color: $color-back; 
-    color: $color-support-aubergine-light;
+    color: $color-3rd;
     a {
-        color: $color-support-aubergine-light;
+        color: $color-3rd;
     }
 
 
