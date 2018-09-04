@@ -1,3 +1,4 @@
 # ubucon
 Sass: Ubuntu conference Copenhagen - UbuCon CPH - educational purpose
-Sass training
+
+Demo: https://rawgit.com/poul5553/ubucon/master/index.html
