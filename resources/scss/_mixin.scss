@@ -246,3 +246,21 @@ $selector: null !default;
   -moz-opacity:           $opacity;
   opacity:                $opacity;
 }
+
+@mixin scale ($factor) {
+  transform:            scale($factor,$factor);
+  -webkit-transform:      scale($factor,$factor);
+  -moz-transform:          scale($factor,$factor);
+  -ms-transform:           scale($factor,$factor);
+  -o-transform:            scale($factor,$factor);
+}
+
+// @mixin ahref ($a-color: $color-back) {
+//   color: $a-color;
+//         font-family: $font-family-norm;
+//     font-weight: $font-weight-norm; 
+//     font-size: $font-size-nav; 
+//     :hover {
+
+//     }
+// }
